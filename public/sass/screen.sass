@@ -147,7 +147,7 @@ dl
       +prepend(11)
 
     &:nth-of-type(6)
-      +prepend(11)
+      +prepend(15)
 
 img#diagram
   margin: 0em auto 2em auto
@@ -213,17 +213,33 @@ img#diagram
       font-size: 2em
       font-style: italic
       margin-bottom: 0.1em
+      margin-top: 1em
 
     &:nth-of-type(2n)
       +prepend(1)
       +column(10, true)
       +append(0)
 
+    &:nth-of-type(odd)
+      clear: left
+
   #astrodog
-    margin: 0 auto 2em auto
     display: block
-    clear: both
-    padding-left: 100px
+    padding: 30px 100px
+    float: right
+
+  #afnetworking, #afincrementalstore
+    margin-top: 30px
+
+  #afnetworking
+    clear: left
+    padding-left: 0
+    +append(1)
+
+  #afincrementalstore
+    clear: none !important
+    +prepend(1.25)
+
 
 #deploy
   h1, a

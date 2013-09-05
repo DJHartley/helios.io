@@ -1,7 +1,7 @@
+ruby '2.0.0'
 source "https://rubygems.org"
 
 gem 'sinatra', require: 'sinatra/base'
-gem 'sinatra-contrib', require: 'sinatra/content_for'
 gem 'haml'
 gem 'redcarpet'
 

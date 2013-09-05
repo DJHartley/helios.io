@@ -1,6 +1,4 @@
 class Web < Sinatra::Base
-  helpers Sinatra::ContentFor
-
   set :markdown, layout_engine: :haml
 
   helpers do
@@ -15,9 +13,7 @@ class Web < Sinatra::Base
         with_toc_data: true
       })
 
-      @toc = render(:markdown, template, options.merge(renderer: Redcarpet::Render::HTML_TOC, layout: false), locals)
-
-      render(:markdown, template, options.merge(renderer: Redcarpet::Render::HTML.new(with_toc_data: true)), locals)
+      render(:markdown, template, options.merge(renderer: Redcarpet::Render::HTML.new), locals)
     end
   end
 
@@ -29,7 +25,6 @@ end
 module Haml::Filters::Markdown
   require 'redcarpet/compat'
   include Haml::Filters::Base
-  lazy_require "redcarpet"
 
   def render(text)
     ::Markdown.new(text).to_html
